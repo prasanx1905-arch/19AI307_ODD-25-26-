@@ -1,113 +1,61 @@
-# Ex.No:4(D) DESIGN PATTERN  ---- BEHAVIOUR PATTERN
+# Ex.No:5(D) THREAD PRIORITY
 
 ## QUESTION:
-Create a program that sends different types of notifications: "email", "sms", and "push". Use the Factory Pattern to generate the appropriate notification sender and call its notifyUser() method.
-
-
+Write a java program for set the priority and name of the current thread.Consider two threads t1 and t2
 
 ## AIM:
-To write a Java program that demonstrates a Behavioral Pattern using the Factory Method, allowing different notification types to send messages through a common interface.
+To write a Java program that demonstrates thread priority by creating two threads, assigning names and priorities to them, and displaying thread execution.
 
 ## ALGORITHM :
 1.	Start the program.
 2.	Import the necessary package 'java.util'
-3.	Create an interface Notification with method notifyUser().
-4. Implement concrete classes: EmailNotification, SMSNotification, and PushNotification.
-5. Create a NotificationFactory that returns the appropriate object based on user input.
-6. In main(), get the notification type from the user.
-7. Call the notifyUser() method of the returned object.
-8. If no valid type is provided, display an error.
-9. Stop the program.
-
-
-
+3.	Create a class that extends Thread.
+4. Override the run() method to print the current thread name and priority.
+5. Create two thread objects t1 and t2.
+6. Set names and priorities for each thread using setName() and setPriority().
+7. Start both threads.
+8. Display messages showing thread execution order.
+9. End the program.
 
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Behaviour Pattern using Java
+Program to implement a Thread Priority Concept using Java
 Developed by: Prasanna A
-RegisterNumber:212223220078
+RegisterNumber: 212223220078
 */
 ```
 
 ## SOURCE CODE:
 ```
-import java.util.Scanner;
+import java.util.*;
 
-interface Notification {
-    void notifyUser();
-}
-
-// ===== Concrete Notifications =====
-class EmailNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Email Notification");
-    }
-}
-
-class SMSNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending SMS Notification");
-    }
-}
-
-class PushNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Push Notification");
-    }
-}
-
-// ===== Factory =====
-class NotificationFactory {
-    public Notification createNotification(String type) {
-        if (type == null) return null;
-        switch (type.toLowerCase()) {
-            case "email":
-                return new EmailNotification();
-            case "sms":
-                return new SMSNotification();
-            case "push":
-                return new PushNotification();
-            default:
-                return null;
-        }
-    }
-}
-
-// ===== Main =====
-public class Main {
+public class ThreadPriorityExample {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        NotificationFactory factory = new NotificationFactory();
-
-        while (true) {
-            String input = sc.nextLine().trim();
-            if (input.equalsIgnoreCase("exit")) break;
-
-            Notification n = factory.createNotification(input);
-            if (n != null) {
-                n.notifyUser();
-            } else {
-                System.out.println("Invalid notification type: " + input);
-            }
-        }
+        String name1 = sc.nextLine();
+        String name2 = sc.nextLine();
+        Thread t1 = new Thread();
+        Thread t2 = new Thread();
+        t1.setName(name1);
+        t2.setName(name2);
+        t1.setPriority(4);
+        t2.setPriority(2);
+        System.out.println(t1);
+        System.out.println(t2);
 
         sc.close();
     }
 }
 ```
 
-
-
-
-
-
 ## OUTPUT:
 
-![java45](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/c6316a5904f4a174dd995f6b7d7c47b65f677921/19AI307_JAVA(25-26)/Module-04/DAY-5/java45.png)
+![java54](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/7d952630fc35928069eb8db8971d42aa9400df96/19AI307_JAVA(25-26)/Module-05/DAY-4/java54.png)
+
 
 ## RESULT:
-Thus, the program demonstrating the Behavioral Pattern using Factory Method to generate different notification types was successfully implemented and executed.
+Thus, the Java program that demonstrates thread naming and thread priority was successfully executed.
+
 
