@@ -1,28 +1,34 @@
-Ex.No:1(D) ARRAYS
-QUESTION:
+# Ex.No:1(D) ARRAYS
+
+## QUESTION:
 Write a Java program to find the index of a given element in an array.
 
-AIM:
+## AIM:
 To write a Java program that finds the index position of a specified element from a given array.
 
-ALGORITHM :
-Start the program.
-Import the necessary package 'java.util'
-Read the size of the array from the user.
-Create an array of the given size.
-Read the array elements from the user and store them in the array.
-Read the element to be searched.
-Traverse the array and compare each element with the search element.
-If matched, print the index position and terminate.
-If not found, display "Element not found".
-Stop the program.
-PROGRAM:
+## ALGORITHM :
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Read the size of the array from the user.
+4. Create an array of the given size.
+5. Read the array elements from the user and store them in the array.
+6. Read the element to be searched.
+7. Traverse the array and compare each element with the search element.
+8. If matched, print the index position and terminate.
+9. If not found, display "Element not found".
+10. Stop the program.
+
+## PROGRAM:
+ ```
 /*
 Program to implement a Array concept using Java
-Developed by: Prasanna  A
+Developed by: Prasanna A
 RegisterNumber:212223220078
 */
-SOURCE CODE:
+```
+
+## SOURCE CODE:
+```
 import java.util.*;
 public class Main
 {
@@ -56,8 +62,21 @@ public class Main
         }
     }
 }
-OUTPUT:
-OUTPUT
+```
 
-RESULT:
+
+
+
+
+
+
+## OUTPUT:
+![OUTPUT](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/89cca4a56df2cfb4774052b6ca0e2fe103f4875f/19AI307_JAVA(25-26)/Module-01/DAY-4/output.jpg)
+
+## RESULT:
+
 Thus, the Java program to find the index of a given element in an array was successfully executed.
+
+
+
+
