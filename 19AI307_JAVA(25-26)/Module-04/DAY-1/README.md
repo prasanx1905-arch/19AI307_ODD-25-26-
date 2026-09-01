@@ -1,53 +1,54 @@
-# Ex.No:4(A) EXCEPTION HANDLING
+# Ex.No:5(A) INPUTSTREAMREADER 
 
 ## QUESTION:
-If an Integer object is set to null, and you attempt to call .toString() on it, what happens? How can you prevent your code from throwing an exception in such cases?
+Write a Java program to write characters to a file using FileWriter.
+
 
 
 ## AIM:
-
-To write a Java program to demonstrate NullPointerException when calling .toString() on a null Integer object and to handle the exception using try-catch.
+To write a Java program that writes character data into a text file using the FileWriter class.
 
 ## ALGORITHM :
 1.	Start the program.
 2.	Import the necessary package 'java.util'
-3.	Read an integer value from the user.
-4. Assign null if the user enters 0 (or a specific case).
-5. Try to call .toString() method on the Integer object.
-6. Catch the NullPointerException and display a meaningful message.
-7. Display output and end the program.
+3.	Create a FileWriter object and specify the filename.
+4. Write characters to the file using the write() method.
+5. Close the FileWriter to save the data.
+6. End the program.
+
+
+
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Exception Handling using Java
+Program to implement a InputStreamReader using Java
 Developed by: Prasanna A
-RegisterNumber:212223220078
+RegisterNumber:212223220078  
 */
 ```
 
 ## SOURCE CODE:
 ```
+import java.io.*;
 import java.util.Scanner;
 
-public class NullCheck
-{
-    public static void main(String[] args) 
-    {
+public class FileWriterExampleUserInput {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Integer num = sc.nextInt(); 
-        try 
-        {
-            if (num == 0) 
-            {
-                num = null;
-            }
-            System.out.println(num.toString());
 
-        } 
-        catch (NullPointerException e) 
-        {
-            System.out.println("Null Integer");
+        try {
+            String fileName = sc.nextLine();
+            String content = sc.nextLine();
+            FileWriter fw = new FileWriter(fileName);
+            fw.write(content);
+            fw.close();
+
+            System.out.println("File written successfully.");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        } finally {
+            sc.close();
         }
     }
 }
@@ -59,9 +60,9 @@ public class NullCheck
 
 
 ## OUTPUT:
-![java41](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/9322907efbe6666ef88acb6049076b422ed172f1/19AI307_JAVA(25-26)/Module-04/DAY-1/java41.png)
 
+![java51](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/a9261fe7fb8a08b278b91f6a1a979055f59755dc/19AI307_JAVA(25-26)/Module-05/DAY-1/java51.png)
 
 ## RESULT:
-Thus, the program demonstrates that calling .toString() on a null object causes a NullPointerException, and the exception can be prevented using a try-catch block.
+Thus, the Java program to write characters to a file using FileWriter was successfully executed and verified.
 
