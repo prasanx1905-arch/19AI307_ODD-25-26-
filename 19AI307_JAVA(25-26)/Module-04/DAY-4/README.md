@@ -1,34 +1,33 @@
-# Ex.No:4(D) DESIGN PATTERN  ---- BEHAVIOUR PATTERN
+# Ex.No:4(D) DESIGN PATTERN -- ABSTRACT FACTORY
 
 ## QUESTION:
-Create a program that sends different types of notifications: "email", "sms", and "push". Use the Factory Pattern to generate the appropriate notification sender and call its notifyUser() method.
+You are asked to simulate a simple Shape Drawing Tool using the Factory Design Pattern in Java.
+
+You will implement a Shape interface with concrete classes for different shapes (Circle, Square, Rectangle). Using a ShapeFactory, your program will take shape names from user input and draw them accordingly. If the shape is unknown, print an error message.
 
 
 
 ## AIM:
-To write a Java program that demonstrates a Behavioral Pattern using the Factory Method, allowing different notification types to send messages through a common interface.
+To write a Java program that implements the Factory Design Pattern to create and draw shapes dynamically based on user input.
 
 ## ALGORITHM :
 1.	Start the program.
 2.	Import the necessary package 'java.util'
-3.	Create an interface Notification with method notifyUser().
-4. Implement concrete classes: EmailNotification, SMSNotification, and PushNotification.
-5. Create a NotificationFactory that returns the appropriate object based on user input.
-6. In main(), get the notification type from the user.
-7. Call the notifyUser() method of the returned object.
-8. If no valid type is provided, display an error.
+3.	Create a Shape interface containing a draw() method.
+4. Create concrete classes Circle, Square, and Rectangle implementing Shape.
+5. Create a ShapeFactory class with a method getShape(String shapeType).
+6. In the main() method, accept user input for shape type.
+7. Call factory method to get the appropriate object.
+8. Draw the shape or print error if unknown.
 9. Stop the program.
-
-
-
 
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Behaviour Pattern using Java
+Program to implement a Abstract Factory Pattern using Java
 Developed by: Prasanna A
-RegisterNumber:212223220078
+RegisterNumber:212223220078  
 */
 ```
 
@@ -36,64 +35,64 @@ RegisterNumber:212223220078
 ```
 import java.util.Scanner;
 
-interface Notification {
-    void notifyUser();
+interface Shape {
+    void draw();
 }
 
-// ===== Concrete Notifications =====
-class EmailNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Email Notification");
+class Circle implements Shape {
+    public void draw() {
+        System.out.println("Drawing Circle");
     }
 }
 
-class SMSNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending SMS Notification");
+class Square implements Shape {
+    public void draw() {
+        System.out.println("Drawing Square");
     }
 }
 
-class PushNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Push Notification");
+class Rectangle implements Shape {
+    public void draw() {
+        System.out.println("Drawing Rectangle");
     }
 }
 
-// ===== Factory =====
-class NotificationFactory {
-    public Notification createNotification(String type) {
-        if (type == null) return null;
-        switch (type.toLowerCase()) {
-            case "email":
-                return new EmailNotification();
-            case "sms":
-                return new SMSNotification();
-            case "push":
-                return new PushNotification();
+class ShapeFactory {
+    public Shape getShape(String shapeType) {
+        if (shapeType == null) {
+            return null;
+        }
+        switch (shapeType.toLowerCase()) {
+            case "circle":
+                return new Circle();
+            case "square":
+                return new Square();
+            case "rectangle":
+                return new Rectangle();
             default:
                 return null;
         }
     }
 }
 
-// ===== Main =====
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        NotificationFactory factory = new NotificationFactory();
-
+        ShapeFactory factory = new ShapeFactory();
+        
         while (true) {
             String input = sc.nextLine().trim();
-            if (input.equalsIgnoreCase("exit")) break;
-
-            Notification n = factory.createNotification(input);
-            if (n != null) {
-                n.notifyUser();
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
+            
+            Shape shape = factory.getShape(input);
+            if (shape != null) {
+                shape.draw();
             } else {
-                System.out.println("Invalid notification type: " + input);
+                System.out.println("Invalid shape: " + input);
             }
         }
-
         sc.close();
     }
 }
@@ -106,8 +105,8 @@ public class Main {
 
 ## OUTPUT:
 
-![java45](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/c6316a5904f4a174dd995f6b7d7c47b65f677921/19AI307_JAVA(25-26)/Module-04/DAY-5/java45.png)
+![java44](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/b628a27d8352a971924fad5b0adffc7f5f8644ba/19AI307_JAVA(25-26)/Module-04/DAY-4/java44.png)
 
 ## RESULT:
-Thus, the program demonstrating the Behavioral Pattern using Factory Method to generate different notification types was successfully implemented and executed.
+Thus, the Java program to simulate Shape Drawing using the Factory Design Pattern was successfully implemented and executed.
 
